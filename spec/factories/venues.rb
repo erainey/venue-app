@@ -6,7 +6,7 @@ FactoryGirl.define do
     address_three ""
     city "Miami Beach"
     state "FL"
-    zip "33140"
+    zipcode "33140"
     phone "305-538-2000"
     website "http://www.fontainebleau.com/"
     email "info@fontainebleau.com"
