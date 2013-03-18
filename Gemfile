@@ -29,6 +29,7 @@ gem "capybara", :group => :test
 gem "database_cleaner", :group => :test
 gem "better_errors", :group => :development
 gem "pry", :group => :development
+gem "factory_girl_rails", "~> 4.0", :group => :test
 gem "devise"
 gem "cancan"
 gem "rolify"
