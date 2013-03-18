@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313025451) do
+ActiveRecord::Schema.define(:version => 20130318134247) do
+
+  create_table "amenities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -23,6 +29,13 @@ ActiveRecord::Schema.define(:version => 20130313025451) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "types", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -49,5 +62,41 @@ ActiveRecord::Schema.define(:version => 20130313025451) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "venue_amenities", :force => true do |t|
+    t.integer  "venue_id"
+    t.integer  "amenity_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "venue_amenities", ["amenity_id"], :name => "index_venue_amenities_on_amenity_id"
+  add_index "venue_amenities", ["venue_id"], :name => "index_venue_amenities_on_venue_id"
+
+  create_table "venue_types", :force => true do |t|
+    t.integer  "venue_id"
+    t.integer  "type_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "venue_types", ["type_id"], :name => "index_venue_types_on_type_id"
+  add_index "venue_types", ["venue_id"], :name => "index_venue_types_on_venue_id"
+
+  create_table "venues", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "address_one"
+    t.string   "address_two"
+    t.string   "address_three"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "full_address"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
 end
