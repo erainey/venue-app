@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318140045) do
+ActiveRecord::Schema.define(:version => 20130321095500) do
 
   create_table "amenities", :force => true do |t|
     t.string   "name"
@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(:version => 20130318140045) do
     t.string   "full_address"
     t.float    "longitude"
     t.float    "latitude"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "email"
     t.string   "website"
     t.integer  "capacity"
@@ -106,6 +106,9 @@ ActiveRecord::Schema.define(:version => 20130318140045) do
     t.string   "youtube"
     t.string   "google_plus"
     t.string   "phone"
+    t.boolean  "featured",      :default => false
+    t.boolean  "published",     :default => false
+    t.integer  "price"
   end
 
 end

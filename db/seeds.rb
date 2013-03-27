@@ -20,3 +20,6 @@ user2.add_role :owner
 user3 = User.find_or_create_by_email :username => 'guest', :email => 'guest@example.com', :password => 'changeme', :password_confirmation => 'changeme'
 puts 'user: ' << user3.username
 user2.add_role :guest
+
+puts 'DEFAULT AMENITIES'
+
