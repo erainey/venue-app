@@ -1,8 +1,9 @@
 class Venue < ActiveRecord::Base
 
-  default_scope where(:published => true) 
+  scope :published, where(:published? == true)
+  scope :featured, where(:featured? == true)
 
-  attr_accessible :address_one, :address_three, :address_two, :capacity, :city, :description, :email, :facebook, :featured, :full_address, :google_plus, :latitude, :longitude, :name, :phone, :price, :published, :state, :twitter, :youtube, :zipcode
+  attr_accessible :address_one, :address_three, :address_two, :capacity, :city, :description, :email, :facebook, :featured, :full_address, :google_plus, :latitude, :longitude, :name, :phone, :price, :published, :state, :twitter, :youtube, :website, :zipcode
   has_many :venue_types
   has_many :types, :through => :venue_types
   has_many :amenities, :through => :venue_amenities

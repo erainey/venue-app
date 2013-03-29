@@ -1,4 +1,5 @@
-<h3>Home</h3>
+<h3>Featured Venues</h3>
 <% @venues.each do |venue| %>
   <p>Venue: <%= venue.name %> <%= link_to venue.name, venue %></p>
+  <p><%= venue.published %></p>
 <% end %>

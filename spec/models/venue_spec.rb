@@ -42,7 +42,7 @@ describe Venue do
 
   describe "venue#published?" do
     it "confirms that the Venue is published" do
-      venue = FactoryGirl.create(:venue)
+      venue = FactoryGirl.build(:venue)
       venue.published?.should be_true
     end
     it "confirms that the Venue is unpublished" do
@@ -55,7 +55,7 @@ describe Venue do
 
   describe "venue#featured?" do
     it "confirms that the Venue is featured" do
-      venue = FactoryGirl.create(:venue)
+      venue = FactoryGirl.build(:venue)
       venue.featured?.should be_true
     end
     it "confirms that the Venue is not featured" do

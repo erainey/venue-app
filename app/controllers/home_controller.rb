@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-  	@venues = Venue.all
+  	@venues = Venue.published.featured.limit(3)
   end
 end

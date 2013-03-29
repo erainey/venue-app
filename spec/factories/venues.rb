@@ -10,10 +10,10 @@ FactoryGirl.define do
     phone "305-538-2000"
     website "http://www.fontainebleau.com/"
     email "info@fontainebleau.com"
-    facebook "http://www.facebook.com"
-    twitter "http://www.twitter.com"
+    facebook "http://www.facebook.com/pages/Fontainebleau-Miami-Beach/78458342904?v=wall"
+    twitter "http://twitter.com/Fontainebleau"
     google_plus "http://www.google.com"
-    youtube "http://www.youtube.com"
+    youtube "http://www.youtube.com/fontainebleaumb"
     description "The Fontainebleau Miami Beach or the Fontainebleau Hotel is one of the most historically and architecturally significant hotels on Miami Beach."
     price 1
     capacity 1000
