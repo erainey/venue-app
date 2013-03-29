@@ -27,8 +27,12 @@ gem "rspec-rails", :group => [:development, :test]
 gem "cucumber-rails", :group => :test, :require => false
 gem "capybara", :group => :test
 gem "database_cleaner", :group => :test
-gem "better_errors", :group => :development
-gem "pry", :group => :development
+group :development do
+	gem "better_errors"
+	gem "pry"
+	gem "awesome_print"
+end
+
 gem "factory_girl_rails", "~> 4.0", :group => :test
 gem "devise"
 gem "cancan"

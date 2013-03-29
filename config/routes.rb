@@ -1,12 +1,18 @@
 VenueApp::Application.routes.draw do
 
+
   authenticated :user do
     root :to => 'home#index'
   end
   root :to => "home#index"
-
+  
   devise_for :users
   resources :users
+  resources :venues, :only => [:show]
+
+  namespace :admin do
+    resources :venues, :users
+  end 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

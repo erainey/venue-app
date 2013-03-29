@@ -1,5 +1,9 @@
 class Venue < ActiveRecord::Base
+
+  default_scope where(:published => true) 
+
   attr_accessible :address_one, :address_three, :address_two, :city, :description, :email, :facebook, :featured, :full_address, :google_plus, :latitude, :longitude, :name, :phone, :price, :published, :state, :twitter, :youtube, :zipcode
+  has_many :venue_types
   has_many :types, :through => :venue_types
   has_many :amenities, :through => :venue_amenities
 
@@ -11,5 +15,13 @@ class Venue < ActiveRecord::Base
   def full_address
 		[address_one, address_two, address_three, city, state, zipcode].reject{|x| x == ''}.join(', ')
 	end
+
+  def published?
+    self.published == true
+  end
+
+  def featured?
+    self.featured == true
+  end
 
 end

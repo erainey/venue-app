@@ -20,4 +20,19 @@ FactoryGirl.define do
     published true
     featured true
   end
+
+  factory :invalid_venue, :class => 'Venue' do
+    name ""
+    address_one ""
+    city ""
+    state ""
+    zipcode ""
+    phone "ABCDEFGDH"
+    website "Helloworld!!"
+    price -1
+    capacity -900
+    published "test"
+    featured "no"
+  end
+
 end
