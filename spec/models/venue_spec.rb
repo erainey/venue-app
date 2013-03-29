@@ -32,6 +32,11 @@ describe Venue do
     	venue.capacity = 0
     	venue.should be_invalid
     end
+    it "obtains valid latitude/longitude from full_address (using Google API)" do
+      venue = FactoryGirl.create(:venue)
+      expect venue.latitude.should eq(25.81797220)
+      expect venue.longitude.should eq(-80.12238979999999)
+    end
 
   end
 

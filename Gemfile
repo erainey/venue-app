@@ -23,17 +23,22 @@ end
 gem 'jquery-rails'
 
 
-gem "rspec-rails", :group => [:development, :test]
-gem "cucumber-rails", :group => :test, :require => false
-gem "capybara", :group => :test
-gem "database_cleaner", :group => :test
 group :development do
 	gem "better_errors"
 	gem "pry"
 	gem "awesome_print"
+	gem "rspec-rails"
 end
 
-gem "factory_girl_rails", "~> 4.0", :group => :test
+group :test do
+	gem "rspec-rails"
+	gem "fakeweb"
+	gem "factory_girl_rails", "~> 4.0"
+	gem "cucumber-rails", :require => false
+	gem "capybara"
+	gem "database_cleaner"
+end
+
 gem "devise"
 gem "cancan"
 gem "rolify"
