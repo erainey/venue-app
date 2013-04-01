@@ -8,7 +8,7 @@ VenueApp::Application.routes.draw do
   
   devise_for :users
   resources :users
-  resources :venues, :only => [:show]
+  resources :venues
 
   namespace :admin do
     resources :venues, :users

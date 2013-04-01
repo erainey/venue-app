@@ -3,9 +3,10 @@ class Venue < ActiveRecord::Base
   scope :published, where(:published? == true)
   scope :featured, where(:featured? == true)
 
-  attr_accessible :address_one, :address_three, :address_two, :capacity, :city, :description, :email, :facebook, :featured, :full_address, :google_plus, :latitude, :longitude, :name, :phone, :price, :published, :state, :twitter, :youtube, :website, :zipcode
+  attr_accessible :address_one, :address_three, :address_two, :amenity_ids, :capacity, :city, :description, :email, :facebook, :featured, :full_address, :google_plus, :latitude, :longitude, :name, :phone, :price, :published, :state, :twitter, :type_ids, :youtube, :website, :zipcode
   has_many :venue_types
-  has_many :types, :through => :venue_types
+  has_many :types, :through => :venue_types, :dependent => :destroy
+  has_many :venue_amenities
   has_many :amenities, :through => :venue_amenities
 
   validates_presence_of :name, :address_one, :full_address, :city, :state, :zipcode

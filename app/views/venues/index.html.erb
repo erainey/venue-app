@@ -1,2 +1,4 @@
-<h1>Venues#index</h1>
-<p>Find me in app/views/venues/index.html.erb</p>
+<h3>Featured Venues</h3>
+<% @venues.each do |venue| %>
+  <p>Venue: <%= venue.name %> <%= link_to venue.name, venue %> <%= link_to 'Edit', edit_venue_path(@venue) %></p>
+<% end %>
