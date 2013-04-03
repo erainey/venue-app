@@ -28,6 +28,7 @@ group :development do
 	gem "pry"
 	gem "awesome_print"
 	gem "rspec-rails"
+	gem "meta_request"
 end
 
 group :test do

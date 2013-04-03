@@ -8,6 +8,7 @@ class Venue < ActiveRecord::Base
   has_many :types, :through => :venue_types, :dependent => :destroy
   has_many :venue_amenities
   has_many :amenities, :through => :venue_amenities
+  accepts_nested_attributes_for :venue_amenities, allow_destroy: true
 
   validates_presence_of :name, :address_one, :full_address, :city, :state, :zipcode
   validates_uniqueness_of :name

@@ -6,11 +6,12 @@ describe VenueAmenity do
   	venue_amenity.should be_valid
   end
   it "does not create a VenueAmenity with a duplicate venue_id" do
-  	#venue = FactoryGirl.create(:venue)
-  	#amenity = FactoryGirl.create(:amenity)
-  	#venue_amenity1 = VenueAmenity.create(:venue => venue, :amenity => amenity)
-  	#venue_amenity1.should be_valid
-  	#venue = FactoryGirl.create(:venue)
+  	venue ||= FactoryGirl.create(:venue)
+  	amenity ||= FactoryGirl.create(:amenity)
+  	venue.venue_amenities.build
+  	venue.should have(:no).errors_on(:venue_amenities)
+
+    #venue = FactoryGirl.create(:venue)
   	#amenity = FactoryGirl.create(:amenity)
   	#venue_amenity1 = venue.amenity(amenity)
   	#venue_amenity1.should be_valid

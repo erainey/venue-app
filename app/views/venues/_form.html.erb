@@ -52,6 +52,7 @@
     <%= f.text_field :capacity %>
   </div>
   <div class="field">
+    <%= hidden_field_tag "venue[type_ids][]", nil %>
     <% Type.all.each do |type| %>
     <%= f.label type.name %>
     <%= check_box_tag :type_ids, type.id,
@@ -60,6 +61,7 @@
     <% end %>
   </div>
   <div class="field">
+    <%= hidden_field_tag "venue[amenity_ids][]", nil %>
     <% Amenity.all.each do |amenity| %>
     <%= f.label amenity.name %>
     <%= check_box_tag :amenity_ids, amenity.id,
