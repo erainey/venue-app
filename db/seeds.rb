@@ -22,8 +22,8 @@ puts 'user: ' << user3.username
 user2.add_role :guest
 
 puts 'DEFAULT VENUES'
-venue = Venue.create(
-		:name => "Fontainebleau Miami Beach",
+Venue.create(
+	:name => "Fontainebleau Miami Beach",
     :address_one => "4441 Collins Ave",
     :address_two => "",
     :address_three => "",
@@ -43,6 +43,27 @@ venue = Venue.create(
     :published => true,
     :featured => true
 	)
+Venue.create(
+    :name => "Gaylord Palms Resort & Convention Center",
+    :address_one => "6000 W Osceola Pkwy",
+    :address_two => "",
+    :address_three => "",
+    :city => "Kissimmee",
+    :state => "FL",
+    :zipcode => "34746",
+    :phone => "407-586-0000",
+    :website => "http://www.marriott.com/hotels/travel/mcogp-gaylord-palms-resort-and-convention-center/",
+    :email => "",
+    :facebook => "http://www.facebook.com/marriottinternational",
+    :twitter => "http://twitter.com/#!/MarriottIntl",
+    :google_plus => "",
+    :youtube => "",
+    :description => "Welcome to Gaylord Palms, where extraordinary service and superior amenities create a world-class resort experience for leisure and business travelers alike. Drawing from classic Florida architecture, our majestic Kissimmee resort spans 63 acres and celebrates Florida's history, culture and natural beauty. Our signature atriums recreate three Florida environments, immersing you in the sights and sounds for which the state is known - from the gently rising mists of the Everglades to the funky and vibrant island revelry of Key West to the Spanish-infused, old-world charm of St Augustine. Business travelers and meeting planners will also enjoy our resort's central location, 400,000 square ft of flexible meeting space and 178,500 square ft Florida Exhibition Hall. Discover Gaylord Palms and experience all the wonder and enchantment of the Sunshine State under one roof!",
+    :price => 5,
+    :capacity => 10000,
+    :published => true,
+    :featured => true
+    )
 
 puts 'DEFAULT TYPES'
 Type.create(:name => "Banquet Hall")
