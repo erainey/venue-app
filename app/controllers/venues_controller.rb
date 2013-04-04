@@ -1,6 +1,7 @@
 class VenuesController < ApplicationController
   def index
-    @venues = Venue.published.featured.limit(3)
+
+    @venues = Venue.all
   end
 
   def show
@@ -42,7 +43,7 @@ class VenuesController < ApplicationController
 
   def update
     @venue = Venue.find(params[:id])
-   
+
     respond_to do |format|
       if @venue.update_attributes(params[:venue])
         format.html  { redirect_to(@venue,
@@ -51,7 +52,17 @@ class VenuesController < ApplicationController
         format.html  { render :action => "edit" }
       end
     end
+  end
 
-end
+  def search
+    @search = Venue.near(params[:location]).search(params[:q])
+    #@search = Venue.search(params[:q])
+    @venues = @search.result
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
 
 end

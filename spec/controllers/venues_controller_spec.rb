@@ -23,4 +23,11 @@ describe VenuesController do
     end
   end
 
+  describe "GET 'search'" do
+    it "returns a valid search result" do
+      venue = FactoryGirl.create(:venue)
+      
+    end
+  end
+
 end

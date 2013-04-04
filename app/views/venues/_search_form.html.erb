@@ -1,0 +1,7 @@
+<%= search_form_for @search, :url => url_for(:controller => 'venues', :action => 'search') do |f| %>
+  <%= f.label :description_cont, "Name" %>
+  <%= f.text_field :description_cont %>
+  <%= label_tag :location %>
+  <%= text_field_tag :location, params[:location] %>
+  <%= f.submit %>
+<% end %>

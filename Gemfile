@@ -22,6 +22,7 @@ end
 
 gem 'jquery-rails'
 gem "rails-boilerplate"
+gem 'ransack'
 
 group :development do
 	gem "better_errors"

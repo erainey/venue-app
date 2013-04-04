@@ -6,6 +6,9 @@ VenueApp::Application.routes.draw do
   end
   root :to => "home#index"
   
+  match 'venues/search', :to => 'venues#search'
+  
+
   devise_for :users
   resources :users
   resources :venues
