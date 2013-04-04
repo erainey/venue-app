@@ -1,2 +1,16 @@
-<h1>Venues#show</h1>
-<p>Find me in app/views/venues/show.html.erb</p>
+<h1><%= @venue.name %></h1>
+<p><%= @venue.description %></p>
+<p><%= @venue.address_one %></p>
+<p><%= @venue.address_two %></p>
+<p><%= @venue.address_three %></p>
+<p><%= @venue.city %>, <%= @venue.state %> <%= @venue.zipcode %></p>
+<%= link_to 'Website', @venue.website %>
+<%= link_to 'Facebook', @venue.facebook %>
+<%= link_to 'Twitter', @venue.twitter %>
+<%= link_to 'YouTube', @venue.youtube %>
+<%= link_to 'Google+', @venue.google_plus %>
+<%= link_to 'Phone', 'tel:'.concat(@venue.phone.gsub('-','')) %>
+<p>Featured: <%= @venue.featured %></p>
+<p>Price: <%= @venue.price %></p>
+<p>Capacity: <%= @venue.capacity %></p>
+<%= link_to 'Edit '.concat(@venue.name), edit_venue_path(@venue) %></p>

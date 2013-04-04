@@ -51,22 +51,29 @@
     <%= f.label :capacity %><br />
     <%= f.text_field :capacity %>
   </div>
+  
   <div class="field">
+    <p>Venue Types</p>
     <%= hidden_field_tag "venue[type_ids][]", nil %>
     <% Type.all.each do |type| %>
-    <%= f.label type.name %>
     <%= check_box_tag :type_ids, type.id,
                       @venue.types.include?(type),
-                      :name => 'venue[type_ids][]'%>
+                      :name => 'venue[type_ids][]', id: dom_id(type) %>
+    <%= label_tag dom_id(type), type.name %>
+    <br />
     <% end %>
   </div>
+  
   <div class="field">
+    <p>Venue Amenities</p>
     <%= hidden_field_tag "venue[amenity_ids][]", nil %>
     <% Amenity.all.each do |amenity| %>
-    <%= f.label amenity.name %>
+    
     <%= check_box_tag :amenity_ids, amenity.id,
                       @venue.amenities.include?(amenity),
-                      :name => 'venue[amenity_ids][]'%>
+                      :name => 'venue[amenity_ids][]', id: dom_id(amenity) %>
+    <%= label_tag dom_id(amenity), amenity.name %>
+    <br />
     <% end %>
   </div>
   <div class="actions">

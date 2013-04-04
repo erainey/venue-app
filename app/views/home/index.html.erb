@@ -1,4 +1,4 @@
 <h3>Featured Venues</h3>
 <% @venues.each do |venue| %>
-  <p>Venue: <%= venue.name %> <%= link_to venue.name, venue %> <%= link_to 'Edit', edit_venue_path(@venue) %></p>
+  <p><%= link_to venue.name, venue %>
 <% end %>
