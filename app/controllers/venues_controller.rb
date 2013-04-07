@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
   def index
 
-    @venues = Venue.all
+    @venues = Venue.where(:published => true)
   end
 
   def show
@@ -55,12 +55,28 @@ class VenuesController < ApplicationController
   end
 
   def search
-    @search = Venue.near(params[:location]).search(params[:q])
-    #@search = Venue.search(params[:q])
+    @types = Type.all
+    @amenities = Amenity.all
+    @search = Venue.where(:published => true).near(params[:location]).search(params[:q])
     @venues = @search.result
+
+    search_results_message(@venues)
 
     respond_to do |format|
       format.html
+    end
+  end
+
+  def search_results_message(obj)
+    result_count = obj.count
+    if result_count == 0
+      flash[:notice] = "No results found. Please try again."
+    else
+      if result_count == 1
+        flash[:notice] = @venues.length.to_s + " result found."
+      else
+        flash[:notice] = @venues.length.to_s + " results found."
+      end
     end
   end
 

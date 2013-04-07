@@ -1,7 +1,18 @@
-<%= search_form_for @search, :url => url_for(:controller => 'venues', :action => 'search') do |f| %>
+<%= search_form_for @search, :url => url_for(:controller => 'venues', :action => 'search'), :method => 'post' do |f| %>
   <%= f.label :description_cont, "Name" %>
   <%= f.text_field :description_cont %>
   <%= label_tag :location %>
   <%= text_field_tag :location, params[:location] %>
+  <% @types.each do |type| %>
+  	<%= check_box_tag 'q[types_id_eq_any][]', type.id %>
+    <%= label_tag type.name %>
+    <br />
+  <% end %>
+  <% @amenities.each do |amenity| %>
+  	<%= check_box_tag 'q[amenities_id_eq_any][]', amenity.id %>
+    <%= label_tag amenity.name %>
+    <br />
+  <% end %>
+
   <%= f.submit %>
 <% end %>

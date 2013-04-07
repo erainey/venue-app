@@ -13,6 +13,10 @@ VenueApp::Application.routes.draw do
   resources :users
   resources :venues
 
+  resources :venues do
+    collection { post :search, :to =>  "venues#search" }
+  end
+
   namespace :admin do
     resources :venues, :users
   end 

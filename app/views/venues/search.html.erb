@@ -1,2 +1,11 @@
 <%= render 'search_form' %>
-<%= p @venues.inspect %>
+<div class="search-results">
+	<% if flash[:notice] %>
+	<p class="notice"><%= flash[:notice] %></p>
+	<% end %>
+	<% @venues.each do |venue| %>
+		<div class="venue">
+		<h3><%= venue.name %></h3>
+		</div>
+	<% end %>
+</div>
