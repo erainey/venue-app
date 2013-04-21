@@ -64,7 +64,7 @@
                <a class="dropdown-toggle" data-toggle="dropdown">Venues <b class="caret"></b></a>
                <ul class="dropdown-menu">
                  <li><%= link_to "Venues", admin_venues_path %></li>
-                 <li><a href="#">Another action</a></li>
+                 <li><%= link_to "Types", admin_types_path %></li>
                  <li><a href="#">Something else here</a></li>
                  <li class="divider"></li>
                  <li class="nav-header">Nav header</li>
@@ -84,7 +84,7 @@
    </div>
 
    <div class="container">
-
+     <%= yield %>
      <!-- Main hero unit for a primary marketing message or call to action -->
      <div class="hero-unit">
        <h1>Hello, world!</h1>

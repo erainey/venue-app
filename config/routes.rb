@@ -1,6 +1,7 @@
 VenueApp::Application.routes.draw do
 
 
+
   authenticated :user do
     root :to => 'home#index'
   end
@@ -12,6 +13,8 @@ VenueApp::Application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
   resources :venues
+  resources :types
+  resources :amenities
 
   devise_scope :user do
     match 'register', :to => 'devise/registrations#new'
@@ -25,6 +28,7 @@ VenueApp::Application.routes.draw do
 
   namespace :admin do
     resources :venues, :users, :types, :amenities
+
   end 
 
   # The priority is based upon order of creation:

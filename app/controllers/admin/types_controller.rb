@@ -1,89 +1,85 @@
 module Admin
   class TypesController < BaseController
-
+    # GET /types
+    # GET /types.json
     def index
       @types = Type.all
+
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @types }
+      end
     end
 
+    # GET /types/1
+    # GET /types/1.json
     def show
-      @venue = Venue.find(params[:id])
+      @type = Type.find(params[:id])
 
       respond_to do |format|
-        format.html
+        format.html # show.html.erb
+        format.json { render json: @type }
       end
     end
 
+    # GET /types/new
+    # GET /types/new.json
     def new
-      @venue = Venue.new
+      @type = Type.new
 
       respond_to do |format|
-        format.html
+        format.html # new.html.erb
+        format.json { render json: @type }
       end
     end
 
-    def create
-      @venue = Venue.new(params[:venue])
-
-      respond_to do |format|
-        if @venue.save
-          format.html  { redirect_to(@venue,
-                                     :notice => 'Venue was successfully created.') }
-        else
-          format.html  { render :action => "new" }
-        end
-      end
-    end
-
+    # GET /types/1/edit
     def edit
-      @venue = Venue.find(params[:id])
-      authorize! :update, @venue
+      @type = Type.find(params[:id])
+    end
+
+    # POST /types
+    # POST /types.json
+    def create
+      @type = Type.new(params[:type])
+
       respond_to do |format|
-        format.html
+        if @type.save
+          format.html { redirect_to @type, notice: 'Type was successfully created.' }
+          format.json { render json: @type, status: :created, location: @type }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @type.errors, status: :unprocessable_entity }
+        end
       end
     end
 
+    # PUT /types/1
+    # PUT /types/1.json
     def update
-      @venue = Venue.find(params[:id])
+      @type = Type.find(params[:id])
 
       respond_to do |format|
-        if @venue.update_attributes(params[:venue])
-          format.html  { redirect_to(@venue,
-                                     :notice => 'Venue was successfully updated.') }
+        if @type.update_attributes(params[:type])
+          format.html { redirect_to @type, notice: 'Type was successfully updated.' }
+          format.json { head :no_content }
         else
-          format.html  { render :action => "edit" }
+          format.html { render action: "edit" }
+          format.json { render json: @type.errors, status: :unprocessable_entity }
         end
       end
     end
 
-    def search
-      @types = Type.all
-      @amenities = Amenity.all
-
-      @search = Venue.where(:published => true).near(params[:location]).search(params[:q])
-      @venues = @search.result
-
-      search_results_message(@venues)
+    # DELETE /types/1
+    # DELETE /types/1.json
+    def destroy
+      @type = Type.find(params[:id])
+      @type.destroy
 
       respond_to do |format|
-        format.html
+        format.html { redirect_to types_url }
+        format.json { head :no_content }
       end
     end
-
-    def search_results_message(obj)
-      result_count = obj.count
-      if result_count == 0
-        flash[:notice] = "No results found. Please try again."
-      else
-        if result_count == 1
-          flash[:notice] = @venues.length.to_s + " result found."
-        else
-          flash[:notice] = @venues.length.to_s + " results found."
-        end
-      end
-    end
-
   end
-
 end
-
-
