@@ -1,11 +1,24 @@
 <h2>Sign up</h2>
 <%= form_for(@user) do |f| %>
-  <%= f.error_notification %>
-  <%= display_base_errors resource %>
-  <%= f.input :name, :autofocus => true %>
-  <%= f.input :email, :required => true %>
-  <%= f.input :password, :required => true %>
-  <%= f.input :password_confirmation, :required => true %>
-  <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
+  <% if @user.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited
+        this user from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+	<%= f.label :username %>
+  <%= f.text_field :username, :autofocus => true %><br />
+  <%= f.label :email %>
+  <%= f.text_field :email, :required => true %><br />
+  <%= f.label :password %>
+  <%= f.text_field :password, :required => true %><br />
+  <%= f.label :password_confirmation %>
+  <%= f.text_field :password_confirmation, :required => true %><br />
+  <%= f.submit 'Sign up', :class => 'btn-primary' %>
 <% end %>
 <%= render "devise/shared/links" %>

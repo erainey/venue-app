@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+
   def index
 
     @venues = Venue.where(:published => true)
@@ -35,7 +36,7 @@ class VenuesController < ApplicationController
 
   def edit
     @venue = Venue.find(params[:id])
-
+    authorize! :update, @venue
     respond_to do |format|
       format.html
     end
@@ -57,6 +58,7 @@ class VenuesController < ApplicationController
   def search
     @types = Type.all
     @amenities = Amenity.all
+    
     @search = Venue.where(:published => true).near(params[:location]).search(params[:q])
     @venues = @search.result
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130321095500) do
+ActiveRecord::Schema.define(:version => 20130411025528) do
 
   create_table "amenities", :force => true do |t|
     t.string   "name"
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20130321095500) do
     t.boolean  "featured",      :default => false
     t.boolean  "published",     :default => false
     t.integer  "price"
+    t.integer  "user_id"
   end
 
 end

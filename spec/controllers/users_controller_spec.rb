@@ -9,6 +9,12 @@ describe UsersController do
     end
   end
 
+    it "shows 3 featured Venues" do
+      venues = Venue.featured
+      get 'index'
+      expect(page).to have_content(:venues)
+    end
+
 
   # describe "GET 'show'" do
   #   it "returns http success" do

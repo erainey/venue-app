@@ -4,6 +4,9 @@ class Venue < ActiveRecord::Base
   scope :featured, where(:featured? == true)
 
   attr_accessible :address_one, :address_three, :address_two, :amenity_ids, :capacity, :city, :description, :email, :facebook, :featured, :full_address, :google_plus, :latitude, :longitude, :name, :phone, :price, :published, :state, :twitter, :type_ids, :youtube, :website, :zipcode
+    
+  belongs_to :user
+
   has_many :venue_types
   has_many :types, :through => :venue_types, :dependent => :destroy
   has_many :venue_amenities
@@ -32,6 +35,10 @@ class Venue < ActiveRecord::Base
 
   def featured?
     self.featured == true
+  end
+
+  def owner
+    User.find(user_id)
   end
 
 end

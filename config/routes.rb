@@ -7,18 +7,24 @@ VenueApp::Application.routes.draw do
   root :to => "home#index"
   
   match 'venues/search', :to => 'venues#search'
-  
+  match 'admin', :to => 'admin/base#index'
 
   devise_for :users
-  resources :users
+  resources :users, only: [:show]
   resources :venues
+
+  devise_scope :user do
+    match 'register', :to => 'devise/registrations#new'
+    match 'sign_in', :to => 'devise/sessions#new'
+    match 'sign_out', :to => 'devise/sessions#destroy'
+  end
 
   resources :venues do
     collection { post :search, :to =>  "venues#search" }
   end
 
   namespace :admin do
-    resources :venues, :users
+    resources :venues, :users, :types, :amenities
   end 
 
   # The priority is based upon order of creation:
