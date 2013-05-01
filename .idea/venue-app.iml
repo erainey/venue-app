@@ -28,7 +28,7 @@
     <orderEntry type="library" scope="PROVIDED" name="better_errors (v0.8.0, RVM: ruby-2.0.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootstrap-sass (v2.3.1.0, RVM: ruby-2.0.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.0.4, RVM: ruby-2.0.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.3.1, RVM: ruby-2.0.0-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.3.5, RVM: ruby-2.0.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cancan (v1.6.9, RVM: ruby-2.0.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v2.1.0, RVM: ruby-2.0.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coderay (v1.0.9, RVM: ruby-2.0.0-p0) [gem]" level="application" />

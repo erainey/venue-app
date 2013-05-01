@@ -8,5 +8,8 @@ module Admin
       @user = User.find(params[:id])
       @role = @user.roles
     end
+
+    def edit
+    end
   end
 end

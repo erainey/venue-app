@@ -25,6 +25,7 @@ gem 'jquery-rails'
 gem "rails-boilerplate"
 gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'ransack'
+gem 'carrierwave'
 
 group :development do
 	gem "better_errors"

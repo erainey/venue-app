@@ -45,7 +45,7 @@ module Admin
 
       respond_to do |format|
         if @type.save
-          format.html { redirect_to @type, notice: 'Type was successfully created.' }
+          format.html { redirect_to admin_type_path(@type), notice: 'Type was successfully created.' }
           format.json { render json: @type, status: :created, location: @type }
         else
           format.html { render action: "new" }
@@ -61,7 +61,7 @@ module Admin
 
       respond_to do |format|
         if @type.update_attributes(params[:type])
-          format.html { redirect_to @type, notice: 'Type was successfully updated.' }
+          format.html { redirect_to admin_type_path(@type), notice: 'Type was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: "edit" }
@@ -77,7 +77,7 @@ module Admin
       @type.destroy
 
       respond_to do |format|
-        format.html { redirect_to types_url }
+        format.html { redirect_to admin_types_path }
         format.json { head :no_content }
       end
     end

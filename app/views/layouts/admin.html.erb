@@ -29,18 +29,13 @@
        Modernizr enables HTML5 elements & feature detects for optimal performance.
        Create your own custom Modernizr build: www.modernizr.com/download/ -->
   <%= javascript_include_tag 'vendor/modernizr' %>
-
+    <style>
+    body {
+      padding:60px 40px;
+    }
+  </style>
 
 </head>
-<body>
-   <div class="row">
-    <p>
-      <span>You are signed in as <%= current_user.email %></span>
-      <span><%= link_to "My Account", edit_user_registration_path %></span>
-      <span><%= link_to "Sign Out", "/sign_out" %></span>
-    </p>
-   </div>
-   <body>
    <!--[if lt IE 7]>
    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
    <![endif]-->
@@ -60,6 +55,7 @@
            <ul class="nav">
              <li><a href="#about">About</a></li>
              <li><a href="#contact">Contact</a></li>
+             <li><%= link_to 'Users', admin_users_path %></li>
              <li class="dropdown">
                <a class="dropdown-toggle" data-toggle="dropdown">Venues <b class="caret"></b></a>
                <ul class="dropdown-menu">
@@ -75,7 +71,7 @@
            </ul>
            <div class="pull-right">
              <span>You are signed in as <%= current_user.email %></span>
-             <span><%= link_to "My Account", edit_user_registration_path %></span>
+             <span><%= link_to "My Account", edit_user_registration_path(current_user.id) %></span>
              <span><%= link_to "Sign Out", "/sign_out" %></span>
            </div>
          </div><!--/.nav-collapse -->
