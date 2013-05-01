@@ -1,3 +1,4 @@
 class Gallery < ActiveRecord::Base
-  attr_accessible :references, :references
+  belongs_to :venue
+  has_many :gallery_image
 end

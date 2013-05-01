@@ -1,0 +1,7 @@
+<h1><%= @gallery.name %></h1>
+<% if !@images.nil? do  %>
+	<% @images.each do |image| %>
+		<p><%= image.name %></p>
+	<% end %>
+<% end %>
+<% end %>

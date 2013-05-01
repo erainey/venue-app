@@ -1,0 +1,22 @@
+<h1>Listing Amenities</h1>
+
+<table>
+  <tr>
+    <th>Amenity Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @amenities.each do |amenity| %>
+  <tr>
+    <td><%= amenity.name %></td>
+    <td><%= link_to "Show", "/admin/amenities/#{amenity.id}" %></td>
+    <td><%= link_to 'Edit', edit_admin_amenity_path(amenity) %></td>
+    <td><%= link_to 'Destroy',"/admin/amenities/#{amenity.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Amenity', new_admin_amenity_path %>

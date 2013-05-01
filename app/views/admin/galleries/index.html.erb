@@ -1,0 +1,15 @@
+<table>
+	<tr>
+		<th>Name</th>
+		<th></th>
+	</tr>
+<% @galleries.each do |gallery| %>
+	<tr>
+		<td><%= gallery.name %></td>
+		<td>
+			<%= link_to "Show", admin_gallery_path(gallery) %>
+			<%= link_to "Edit", edit_admin_gallery_path(gallery) %>
+		</td>
+	</tr>
+<% end %>
+</table>

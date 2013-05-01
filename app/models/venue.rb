@@ -18,6 +18,8 @@ class Venue < ActiveRecord::Base
   validates :price, :numericality => { :greater_than => 0, :less_than_or_equal_to => 5 }
   validates :capacity, :numericality => {:greater_than => 0}
 
+  has_one :gallery
+
   geocoded_by :full_address
   after_validation :geocode, :if => :full_address_changed?
 

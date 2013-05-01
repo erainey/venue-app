@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe Venue do
 
+  describe "associations" do
+    it {should have_one(:gallery)}
+  end
+
   describe "Venue creation and validation" do
 
     it "creates a new Venue with valid attributes" do

@@ -26,7 +26,7 @@ VenueApp::Application.routes.draw do
   end
 
   namespace :admin do
-    resources :venues, :users, :types, :amenities
+    resources :venues, :users, :types, :amenities, :galleries, :gallery_images
 
   end 
 
